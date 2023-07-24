@@ -34,3 +34,20 @@ host: x86_64-unknown-linux-gnu
 release: 1.71.0
 LLVM version: 16.0.5
 ```
+
+Reproducible in Docker:
+
+```
+$ docker run --rm -it cimg/rust:1.71 /bin/bash
+circleci@32a45c6ca3e9:~/project$ git clone https://github.com/badboy/uniffi-bindgen-gecko-js-rustc-bug
+Cloning into 'uniffi-bindgen-gecko-js-rustc-bug'...
+remote: Enumerating objects: 122, done.
+remote: Counting objects: 100% (122/122), done.
+remote: Compressing objects: 100% (73/73), done.
+remote: Total 122 (delta 48), reused 118 (delta 46), pack-reused 0
+Receiving objects: 100% (122/122), 82.66 KiB | 4.86 MiB/s, done.
+Resolving deltas: 100% (48/48), done.
+circleci@32a45c6ca3e9:~/project$ cd uniffi-bindgen-gecko-js-rustc-bug/
+circleci@32a45c6ca3e9:~/project/uniffi-bindgen-gecko-js-rustc-bug$ cargo build
+<snip>
+```
